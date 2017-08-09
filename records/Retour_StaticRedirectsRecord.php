@@ -30,10 +30,10 @@ class Retour_StaticRedirectsRecord extends BaseRecord
    protected function defineAttributes()
     {
         return array(
-            'redirectSrcUrl'        => array(AttributeType::String, 'default' => ''),
-            'redirectSrcUrlParsed'  => array(AttributeType::String, 'default' => ''),
+            'redirectSrcUrl'        => array(AttributeType::String, 'column' => ColumnType::Text),
+            'redirectSrcUrlParsed'  => array(AttributeType::String, 'column' => ColumnType::Text),
             'redirectMatchType'     => array(AttributeType::String, 'default' => 'match'),
-            'redirectDestUrl'       => array(AttributeType::String, 'default' => ''),
+            'redirectDestUrl'       => array(AttributeType::String, 'column' => ColumnType::Text),
             'redirectHttpCode'      => array(AttributeType::Number, 'default' => 301),
             'hitCount'              => array(AttributeType::Number, 'default' => 0),
             'hitLastTime'           => array(AttributeType::DateTime, 'default' => DateTimeHelper::currentTimeForDb() ),
@@ -50,7 +50,7 @@ class Retour_StaticRedirectsRecord extends BaseRecord
     {
         return array(
             array('columns' => array('locale', 'id')),
-            array('columns' => array('redirectSrcUrlParsed'), 'unique' => true)
+            //array('columns' => array('redirectSrcUrlParsed'), 'unique' => true)
         );
     }
 
